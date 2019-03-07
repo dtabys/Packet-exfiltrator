@@ -4,9 +4,9 @@ Packet Exfiltrator sends desired message by crafting either a ICMP Echo Request 
 
 ## Interface
 
-'''
+```
 ./secret_sender <ip_address> <interface> <type> <message>
-'''
+```
 
 Packet Exfiltrator will then send the <message>, encoded as described below, to the IP address specified by <ip_address> on physical interface <interface>, <type> specifies the type of packet that the IP datagram will hold, where <type> will be one of:
 
@@ -18,7 +18,7 @@ Packet Exfiltrator will then send the <message>, encoded as described below, to 
 
 From the [IP Datagram RFC 791](https://tools.ietf.org/html/rfc791#section-3.1):
 
-'''
+```
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -34,7 +34,7 @@ From the [IP Datagram RFC 791](https://tools.ietf.org/html/rfc791#section-3.1):
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                    Options                    |    Padding    |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-'''
+```
 
 The protocol for exfiltration data is as follows:
 
@@ -48,15 +48,15 @@ The byte number (the number of the byte from the message being sent) will be enc
 
 When your program is executed with the following commands:
 
-'''
+```
 ./secret_sender 192.168.1.10 eth0 0 test
-'''
+```
 
 Let’s say our random ID is 0x41 for this exfiltration:
 
 Then your program will send the following five packets (note that we’re only showing the IP header here, not the ICMP echo request message):
 
-'''
+```
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -136,7 +136,7 @@ Then your program will send the following five packets (note that we’re only s
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                    Options                    |    Padding    |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-'''
+```
 
 ### Credits
 
