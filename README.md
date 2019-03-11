@@ -140,4 +140,4 @@ Then your program will send the following five packets (note that we’re only s
 
 ### Credits
 
-[Adam Doupe](https://adamdoupe.com/teaching/classes/cse365-information-assurance-f18/assignment_5.html)
+Assignment designed by [Adam Doupe](https://adamdoupe.com/)
